@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookBlog.Views.MenuPage"
+             Background="#383838"
+             Visual="Material"
+             xmlns:vm="clr-namespace:CookBlog.ViewModels"
+             Title="Категории">
+
+   
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="235" />
+                    <RowDefinition Height="235" />
+                    <RowDefinition Height="235" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+
+                <Image HorizontalOptions="FillAndExpand"
+                    Aspect="AspectFill"
+                    Source="FoodType1.png"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
+                <Image HorizontalOptions="FillAndExpand"
+                    Aspect="AspectFill"
+                    Source="black_layer.png"
+                    Opacity="0.5"
+                    Grid.Row="0"
+                    Grid.Column="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Button_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Салаты"
+                    FontSize="20"
+                    TextColor="White"
+                    Grid.Row="0"
+                    Grid.Column="0" />
+
+                <Image HorizontalOptions="FillAndExpand"
+                    Aspect="AspectFill"
+                    Source="FoodType2.png"
+                    Grid.Row="0"
+                    Grid.Column="1"/>
+                <Image HorizontalOptions="FillAndExpand"
+                    Aspect="AspectFill"
+                    Source="black_layer.png"
+                    Opacity="0.5"
+                    Grid.Row="0"
+                    Grid.Column="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Button_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Напитки"
+                    FontSize="20"
+                    TextColor="White"
+                    Grid.Row="0"
+                    Grid.Column="1" />
+
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="FoodType3.png"
+                    Aspect="AspectFill"
+                    Grid.Row="1"
+                    Grid.Column="0"/>
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="black_layer.png"
+                    Aspect="AspectFill"
+                    Opacity="0.5"
+                    Grid.Row="1"
+                    Grid.Column="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Button_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Закуски"
+                    FontSize="20"
+                    TextColor="White"
+                    Grid.Row="1"
+                    Grid.Column="0" />
+
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="FoodType4.png"
+                    Aspect="AspectFill"
+                    Grid.Row="1"
+                    Grid.Column="1"/>
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="black_layer.png"
+                    Aspect="AspectFill"
+                    Opacity="0.5"
+                    Grid.Row="1"
+                    Grid.Column="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Button_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Пицца"
+                    FontSize="20"
+                    TextColor="White"
+                    Grid.Row="1"
+                    Grid.Column="1" />
+
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="FoodType5.png"
+                    Aspect="AspectFill"
+                    Grid.Row="2"
+                    Grid.Column="0"/>
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="black_layer.png"
+                    Aspect="AspectFill"
+                    Opacity="0.5"
+                    Grid.Row="2"
+                    Grid.Column="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Button_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Супы"
+                    FontSize="20"
+                    TextColor="White"
+                    Grid.Row="2"
+                    Grid.Column="0" />
+
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="FoodType6.png"
+                    Aspect="AspectFill"
+                    Grid.Row="2"
+                    Grid.Column="1"/>
+                <Image HorizontalOptions="FillAndExpand"
+                    Source="black_layer.png"
+                    Aspect="AspectFill"
+                    Opacity="0.5"
+                    Grid.Row="2"
+                    Grid.Column="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Button_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Десерты"
+                    FontSize="20"
+                    TextColor="White"
+                    Grid.Row="2"
+                    Grid.Column="1"/>
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
