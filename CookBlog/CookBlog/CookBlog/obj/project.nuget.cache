@@ -1,16 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "Od+BpZ85cWSA7NvJk592JAVgMOVRM0ar5Vx6K5R4ppZnWbiUxAZJyOiNJedKDGt7OFJrqLlElzUD3fRKCdM9dQ==",
+  "dgSpecHash": "bo/7FtuLmRRLT9PY5RJpsVsrXi5IcYgM/ETnjHXEeLIexv2D4SIYwIP/EG+6hI6HGo6rQzVrspx9BB7HXpGPwQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\FRORTATE-1\\Desktop\\CookBlog\\CookBlog\\CookBlog\\CookBlog.csproj",
+  "projectFilePath": "C:\\Users\\Frortate\\Desktop\\MobileProject\\CookBlog\\CookBlog\\CookBlog\\CookBlock.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\FRORTATE-1\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\FRORTATE-1\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\FRORTATE-1\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\FRORTATE-1\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\FRORTATE-1\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\FRORTATE-1\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512",
-    "C:\\Users\\FRORTATE-1\\.nuget\\packages\\xamarin.forms.visual.material\\5.0.0.2196\\xamarin.forms.visual.material.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\Frortate\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.text.json\\6.0.4\\system.text.json.6.0.4.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\xamarin.controls.imagecropper\\1.0.1\\xamarin.controls.imagecropper.1.0.1.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\xamarin.essentials\\1.7.3\\xamarin.essentials.1.7.3.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\xamarin.forms\\5.0.0.2478\\xamarin.forms.5.0.0.2478.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\xamarin.forms.visual.material\\5.0.0.2478\\xamarin.forms.visual.material.5.0.0.2478.nupkg.sha512",
+    "C:\\Users\\Frortate\\.nuget\\packages\\xamarin.rating\\1.0.0.2\\xamarin.rating.1.0.0.2.nupkg.sha512"
   ],
   "logs": []
 }

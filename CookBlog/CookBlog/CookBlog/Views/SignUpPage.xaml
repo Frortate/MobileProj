@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookBlock.Views.SignUpPage"
+             
+             Background="#383838"
+             Visual="Material" Title="Регистрация пользователя"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <StackLayout Spacing="8" >
+                <Entry x:Name="Login_Entry" Placeholder="Логин" Text="" PlaceholderColor="White" TextColor="White" BackgroundColor="#1C1C1E" FontSize="Medium" Margin="10, 80, 10, 0" Opacity="0.75" />
+                <Entry x:Name="Password_Entry" Placeholder="Пароль" Text="" PlaceholderColor="White" TextColor="White" BackgroundColor="#1C1C1E" FontSize="Medium" Margin="10, 5, 10, 0" Opacity="0.75" IsPassword="True" />
+                <Entry x:Name="PasswordConfirm_Entry" Placeholder="Подтвердите пароль" PlaceholderColor="White" TextColor="White" BackgroundColor="#1C1C1E" Text="" FontSize="Medium" Margin="10, 5, 10, 0" Opacity="0.75" IsPassword="True" />
+                <Button Text="Зарегистрироваться" Margin="70, 20" HorizontalOptions="Fill" TextColor="White" CornerRadius="50" BackgroundColor="#2C2C2E" Clicked="Button_Clicked" HeightRequest="50"/>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
