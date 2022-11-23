@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("CookBlog.App.xaml", "App.xaml", typeof(global::CookBlog.App))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("CookBlock.App.xaml", "App.xaml", typeof(global::CookBlock.App))]
 
-namespace CookBlog {
+namespace CookBlock {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("App.xaml")]

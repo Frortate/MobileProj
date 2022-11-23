@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookBlock.Views.MainPage.MenuPages.AddRecipePage"
+             Visual="Material" Title="Создать рецепт"
+             Background="#383838">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*" />
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="0.2*" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" Orientation="Vertical">
+                    <Label x:Name="imageLabel" TextColor="White" Text="Добавьте изображение(по желанию)" Margin="10,20,10,10" FontSize="20"/>
+                    <Image x:Name="img" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="500"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Row="1">
+                    <Button x:Name="getPhotoBtn" Text="Выбрать фото" Clicked="GetPhotoAsync" HorizontalOptions="StartAndExpand" CornerRadius="30" BackgroundColor="#2C2C2E" Margin="10,0,10,10"></Button>
+                    <Button x:Name="takePhotoBtn" Text="Сделать фото" Clicked="TakePhotoAsync" HorizontalOptions="EndAndExpand" CornerRadius="30" BackgroundColor="#2C2C2E" Margin="10,0,10,10"></Button>
+                </StackLayout>
+                <StackLayout Grid.Row="2">
+                    <Entry x:Name="nameEntry" TextColor="White" Placeholder="Название рецепта" PlaceholderColor="White" FontAttributes="Italic" BackgroundColor="#1C1C1E" FontSize="Medium" Margin="10,0,10,0"/>
+
+                    <Picker x:Name="picker" BackgroundColor="#1C1C1E" TextColor="White" Title="Тип блюда" TitleColor="White" SelectedIndexChanged="picker_SelectedIndexChanged" Margin="10,20,10,10">
+                        <Picker.Items>
+                            <x:String>Салаты</x:String>
+                            <x:String>Напитки</x:String>
+                            <x:String>Закуски</x:String>
+                            <x:String>Пицца</x:String>
+                            <x:String>Супы</x:String>
+                            <x:String>Десерты</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Row="3" VerticalOptions="End">
+                    <Button x:Name="nextBtn" Text="Далее" Clicked="nextBtn_Clicked" Margin="20, 20, 0 ,20" HorizontalOptions="Fill" CornerRadius="50" BackgroundColor="#2C2C2E" WidthRequest="350" HeightRequest="50"></Button>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookBlock.Views.StartPage"
+             xmlns:local="clr-namespace:CookBlock"
+             Background="#383838"
+             Visual="Material"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300" />
+            <RowDefinition Height="250" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Label x:Name="Label_AppName" Grid.Row="0" TextColor="White" Text="КНИГА РЕЦЕПТОВ" FontSize="35" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+
+
+        <StackLayout Spacing="8" Grid.Row="1">
+            <Entry x:Name="Login_Entry" TextColor="White" Placeholder="Логин" PlaceholderColor="White" FontAttributes="Italic" BackgroundColor="#1C1C1E" FontSize="Medium" Margin="10, 5, 10, 0" Keyboard="Email" />
+            <Entry x:Name="Password_Entry" TextColor="White" Placeholder="Пароль" FontAttributes="Italic" PlaceholderColor="White" IsPassword="True" BackgroundColor="#1C1C1E" FontSize="Medium" Margin="10, 5, 10, 0" Keyboard="Text" />
+            <Button Text="Войти" Margin="110, 5" CornerRadius="30" BackgroundColor="#2C2C2E" HeightRequest="50" Clicked="Button_Clicked" />
+        </StackLayout>
+        <StackLayout Grid.Row="2" VerticalOptions="End">
+            <Button Text="Зарегистрироваться" Margin="70, 20" HorizontalOptions="Fill" CornerRadius="50" BackgroundColor="#2C2C2E" HeightRequest="50" Command="{Binding CreateUserCommand}" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

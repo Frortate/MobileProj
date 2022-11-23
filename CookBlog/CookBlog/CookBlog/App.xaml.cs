@@ -1,20 +1,19 @@
-﻿using CookBlog.Services;
-using CookBlog.Views;
-using System;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CookBlock.Views;
+using CookBlock.Models;
+using CookBlock.Views.MainPage;
 
-namespace CookBlog
+namespace CookBlock
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            User user = new User();
+            MainPage = new NavigationPage(new StartPage(user));
         }
 
         protected override void OnStart()
