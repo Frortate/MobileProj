@@ -116,5 +116,71 @@ namespace CookBlock.API.Controllers
             await db.SaveChangesAsync();
             return Ok(fullRecipe);
         }
+
+
+
+
+        //------
+
+        [HttpGet("{userId}/Favourites")]
+        public async Task<IEnumerable<Recipe>> GetFavouriteRecipes(int userId)
+        {
+            List<Favourite> recipesIds = await db.Favourites.Where(x => x.User_Id == userId).ToListAsync();
+            List<Recipe> favourites = new List<Recipe>();
+            foreach (Favourite recipeId in recipesIds)
+            {
+                Recipe recipe = await db.Recipes.FirstOrDefaultAsync(x => x.Id == recipeId.Recipe_Id);
+                favourites.Add(recipe);
+            }
+            return favourites;
+        }
+
+        [HttpGet("Favourites/byUserId")]
+        public async Task<IEnumerable<Favourite>> GetFavouritesByUser(int userId)
+        {
+            List<Favourite> favourites = await db.Favourites.Where(x => x.User_Id == userId).ToListAsync();
+            return favourites;
+        }
+
+        [HttpGet("Favourites/all")]
+        public async Task<IEnumerable<Favourite>> GetAllFavouritesFromMyRecipes(int userId)
+        {
+            List<Recipe> recipes = await db.Recipes.Where(x => x.User_Id == userId).ToListAsync();
+            List<Favourite> allFavourites = new List<Favourite>();
+            foreach (Recipe recipe in recipes)
+            {
+                List<Favourite> recipefavourites = await db.Favourites.Where(x => x.Recipe_Id == recipe.Id).ToListAsync();
+                foreach (Favourite favourite in recipefavourites)
+                {
+                    allFavourites.Add(favourite);
+                }
+            }
+            return allFavourites;
+        }
+
+        [HttpPost(("Add/Favourite"))]
+        public async Task<ActionResult<Favourite>> PostFavouriteRecipe(Favourite favourite)
+        {
+            if (favourite == null)
+            {
+                return BadRequest();
+            }
+            db.Favourites.Add(favourite);
+            await db.SaveChangesAsync();
+            return Ok(favourite);
+        }
+
+        [HttpDelete("{userId}/Favourites/{recipeId}")]
+        public async Task<ActionResult<Favourite>> DeleteFavourite(int userId, int recipeId)
+        {
+            Favourite favourite = await db.Favourites.FirstOrDefaultAsync(x => x.User_Id == userId && x.Recipe_Id == recipeId);
+            if (favourite == null)
+            {
+                return NotFound();
+            }
+            db.Favourites.Remove(favourite);
+            await db.SaveChangesAsync();
+            return Ok(favourite);
+        }
     }
 }
