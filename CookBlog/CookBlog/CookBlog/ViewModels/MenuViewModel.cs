@@ -79,6 +79,8 @@ namespace CookBlock.ViewModels
         public ObservableCollection<Recipe_Instruction> FullRecipe_Instructions { get; set; }
         public ObservableCollection<Recipe> Recipes { get; set; }
 
+        public ObservableCollection<Recipe> Favourites { get; set; }
+
         public FullRecipeService recipeService = new FullRecipeService();
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -113,6 +115,7 @@ namespace CookBlock.ViewModels
             logInUser = user;
             menuTitle = "Главное меню";
             Recipes = new ObservableCollection<Recipe>();
+            Favourites = new ObservableCollection<Recipe>();
             FullRecipe_Ingredients = new ObservableCollection<Recipe_Ingredient>();
             FullRecipe_Instructions = new ObservableCollection<Recipe_Instruction>();
             FoodTypeFirstCommand = new Command(FoodTypeFirst);
@@ -124,6 +127,20 @@ namespace CookBlock.ViewModels
             BackCommand = new Command(Back);
         }
 
+        public async Task GetFavourites()
+        {
+            IsBusy = true;
+            IEnumerable<Recipe> favourites = await recipeService.GetFavouriteRecipes(logInUser.Id);
+
+            // очищаем список
+            while (Favourites.Any())
+                Favourites.RemoveAt(Favourites.Count - 1);
+
+            // добавляем загруженные данные
+            foreach (Recipe r in favourites)
+                Favourites.Add(r);
+            IsBusy = false;
+        }
         public async Task GetRecipes(int foodTypeId)
         {
             IsBusy = true;
@@ -187,6 +204,11 @@ namespace CookBlock.ViewModels
             await Navigation.PushAsync(new CategoryMenuPage(logInUser, this));
         }
 
+        private async void MyFavourite()
+        {
+            await GetFavourites();
+            await Navigation.PushAsync(new MyFavouritesPage(logInUser));
+        }
         private void Back()
         {
             selectedRecipe = null;

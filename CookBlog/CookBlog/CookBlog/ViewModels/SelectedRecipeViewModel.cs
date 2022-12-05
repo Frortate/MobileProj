@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace CookBlock.ViewModels
 {
@@ -51,6 +52,39 @@ namespace CookBlock.ViewModels
             }
         }
 
+        public bool isMyRecipe;
+        public bool IsMyRecipe
+        {
+            get { return isMyRecipe; }
+            set
+            {
+                isMyRecipe = value;
+                OnPropertyChanged("IsMyRecipe");
+                OnPropertyChanged("NotMyRecipe");
+            }
+        }
+
+        public bool NotMyRecipe
+        {
+            get { return !isMyRecipe; }
+        }
+
+        public bool isLiked;
+        public bool IsLiked
+        {
+            get { return isLiked; }
+            set
+            {
+                isLiked = value;
+                OnPropertyChanged("IsLiked");
+                OnPropertyChanged("NotLiked");
+            }
+        }
+
+        public bool NotLiked
+        {
+            get { return !isLiked; }
+        }
         public bool IsEmptyIngredients
         {
             get { return !isLoadedIngredients; }
@@ -93,6 +127,8 @@ namespace CookBlock.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand BackCommand { get; protected set; }
 
+
+        public ICommand LikeRecipeCommand { get; protected set; }
         public INavigation Navigation { get; set; }
 
         public SelectedRecipeViewModel(User user, FullRecipe fullRecipe)
@@ -104,10 +140,14 @@ namespace CookBlock.ViewModels
             Instructions = new ObservableCollection<Instruction>();
             GetIngredients();
             GetInstructions();
+
+            IsItMyRecipe();
+            IsRecipeLiked();
             IsMainImageExist();
             GetAuthorName();
             IsIngredientListExist();
             IsInstructionListExist();
+            LikeRecipeCommand = new Command(LikeRecipe);
             BackCommand = new Command(Back);
         }
 
@@ -146,6 +186,19 @@ namespace CookBlock.ViewModels
             IsBusy = false;
         }
 
+        public void IsItMyRecipe()
+        {
+            IsBusy = true;
+            if (logInUser.Id == fullRecipe.recipe.User_Id)
+            {
+                IsMyRecipe = true;
+            }
+            else
+            {
+                IsMyRecipe = false;
+            }
+            IsBusy = false;
+        }
         public async void IsIngredientListExist()
         {
             IsBusy = true;
@@ -188,7 +241,40 @@ namespace CookBlock.ViewModels
             IsBusy = false;
         }
 
+        public void IsRecipeLiked()
+        {
+            IsBusy = true;
+            IsLiked = false;
+            IEnumerable<Favourite> favourite = recipeService.GetFavouritesByUser(logInUser.Id).Result;
+            foreach (Favourite fav in favourite)
+            {
+                if (fav.Recipe_Id == fullRecipe.recipe.Id)
+                {
+                    IsLiked = true;
+                    break;
+                }
+            }
+            IsBusy = false;
+        }
 
+        private async void LikeRecipe()
+        {
+            IsBusy = true;
+            if (IsLiked == true)
+            {
+                IsLiked = false;
+                Favourite deletedFavourite = await recipeService.DeleteFavourite(logInUser.Id, fullRecipe.recipe.Id);
+            }
+            else
+            {
+                Favourite favourite = new Favourite();
+                favourite.Recipe_Id = fullRecipe.recipe.Id;
+                favourite.User_Id = logInUser.Id;
+                IsLiked = true;
+                Favourite newFavourite = await recipeService.AddFavouriteRecipe(favourite);
+            }
+            IsBusy = false;
+        }
 
 
         private void Back()

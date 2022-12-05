@@ -15,6 +15,19 @@
             </Grid.RowDefinitions>
 
             <Label Text="Главное меню" Grid.Row="0" Grid.Column="0" TextColor="White" FontAttributes="Bold" FontSize="20"/>
+            <Image HorizontalOptions="End"
+                   VerticalOptions="Center"
+                    Aspect="AspectFill"
+                    Source="dice_white.png"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0,0,10,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="RandomRecipeTapped"
+                            NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>

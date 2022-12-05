@@ -37,8 +37,9 @@ namespace CookBlock.Views.MainPage
                 {
                     new MainPageFlyoutMenuItem { Id = 1, Title = "Меню", IconSource="silverware.png", TargetType=typeof(MainMenuPage)},
                     new MainPageFlyoutMenuItem { Id = 2, Title = "Создать рецепт", IconSource="plus.png", TargetType=typeof(AddRecipePage)},
-                    new MainPageFlyoutMenuItem { Id = 3, Title = "О приложении", IconSource = "info.png", TargetType=typeof(AboutPage)},
-                    new MainPageFlyoutMenuItem { Id = 4, Title = "Выйти", IconSource = "exit.png", TargetType=typeof(StartPage)}
+                    new MainPageFlyoutMenuItem { Id = 3, Title = "Избранные", IconSource="heart_white.png", TargetType=typeof(MyFavouritesPage)},
+                    new MainPageFlyoutMenuItem { Id = 4, Title = "О приложении", IconSource = "info.png", TargetType=typeof(AboutPage)},
+                    new MainPageFlyoutMenuItem { Id = 5, Title = "Выйти", IconSource = "exit.png", TargetType=typeof(StartPage)}
                 });
             }
 

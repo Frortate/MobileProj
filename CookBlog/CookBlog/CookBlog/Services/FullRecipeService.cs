@@ -14,7 +14,7 @@ namespace CookBlock.Services
 {
     public class FullRecipeService
     {
-        const string Url = "http://192.168.0.104:5000/api/Recipes/";
+        const string Url = "http://192.168.71.167:5000/api/Recipes/";
 
         JsonSerializerOptions options = new JsonSerializerOptions
         {
@@ -100,6 +100,59 @@ namespace CookBlock.Services
                 await response.Content.ReadAsStringAsync(), options);
         }
 
-        
+        //---------------
+
+        public async Task<IEnumerable<Recipe>> GetFavouriteRecipes(int userId)
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url + userId + "/Favourites");
+            return System.Text.Json.JsonSerializer.Deserialize<IEnumerable<Recipe>>(result, options);
+        }
+
+        public async Task<IEnumerable<Favourite>> GetFavouritesByUser(int userId)
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url + "Favourites/byUserId?userId=" + userId).ConfigureAwait(false);
+            return System.Text.Json.JsonSerializer.Deserialize<IEnumerable<Favourite>>(result, options);
+        }
+
+        public async Task<IEnumerable<Favourite>> GetAllFavouritesFromMyRecipes(int userId)
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url + "Favourites/all?userId=" + userId).ConfigureAwait(false);
+            return System.Text.Json.JsonSerializer.Deserialize<IEnumerable<Favourite>>(result, options);
+        }
+
+        public async Task<Favourite> AddFavouriteRecipe(Favourite favourite)
+        {
+            HttpClient httpClient = GetClient();
+            var response = await httpClient.PostAsync(Url + "Add/Favourite",
+                new StringContent(
+                    System.Text.Json.JsonSerializer.Serialize(favourite),
+                    Encoding.UTF8, "application/json"));
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return null;
+            }
+
+            return System.Text.Json.JsonSerializer.Deserialize<Favourite>(
+                await response.Content.ReadAsStringAsync(), options);
+        }
+
+        public async Task<Favourite> DeleteFavourite(int userId, int recipeId)
+        {
+            HttpClient client = GetClient();
+            var response = await client.DeleteAsync(Url + userId + "/Favourites/" + recipeId);
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return null;
+            }
+
+
+            return System.Text.Json.JsonSerializer.Deserialize<Favourite>(
+               await response.Content.ReadAsStringAsync(), options);
+        }
+
     }
 }

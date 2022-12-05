@@ -13,7 +13,7 @@ namespace CookBlock.Services
 {
     public class UserProfileService
     {
-        const string Url = "http://192.168.0.104:5000/api/UserProfile/";
+        const string Url = "http://192.168.71.167:5000/api/UserProfile/";
 
         JsonSerializerOptions options = new JsonSerializerOptions
         {

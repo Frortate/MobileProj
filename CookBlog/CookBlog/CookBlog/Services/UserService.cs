@@ -14,7 +14,7 @@ namespace CookBlock.Services
 {
     public class UserService
     {
-        const string Url = "http://192.168.0.104:5000/api/Users/";
+        const string Url = "http://192.168.71.167:5000/api/Users/";
 
         JsonSerializerOptions options = new JsonSerializerOptions
         {

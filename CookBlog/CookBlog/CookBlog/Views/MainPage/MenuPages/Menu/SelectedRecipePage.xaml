@@ -18,6 +18,50 @@
             </Grid.RowDefinitions>
             <Label Text="{Binding Path=Recipe.Name}" Grid.Row="0" Grid.Column="0" TextColor="White" FontAttributes="Bold" FontSize="18"/>
 
+            <Grid Grid.Row="0" Grid.Column="2" IsVisible="{Binding Path=ViewModel.NotMyRecipe}">
+                <Image HorizontalOptions="End"
+                   VerticalOptions="Center"
+                    Aspect="AspectFill"
+                    Source="heart_white.png"
+                    Margin="0,0,10,0"
+                    IsVisible="{Binding Path=ViewModel.IsLiked}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="LikeRecipeTapped"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image HorizontalOptions="End"
+                   VerticalOptions="Center"
+                    Aspect="AspectFill"
+                    Source="heart_outline_white.png"
+                    Margin="0,0,10,0"
+                    IsVisible="{Binding Path=ViewModel.NotLiked}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="LikeRecipeTapped"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Image HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    x:Name="likeImage"
+                    Grid.Row="0" 
+                    Grid.Column="2"
+                    Aspect="AspectFill"
+                    Source="heart_outline_white.png"
+                    Margin="0,0,10,0"
+                    IsVisible="{Binding Path=ViewModel.NotMyRecipe}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="LikeRecipeTapped"
+                            NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
@@ -37,6 +81,14 @@
                         <FormattedString>
                             <Span TextColor="White" Text="Дата создания: " />
                             <Span TextColor="White" x:Name="creationDate"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center"  FontSize="20" Margin="10,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span TextColor="White" Text="Автор: " />
+                            <Span TextColor="White" Text="{Binding Path=ViewModel.AuthorName}" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

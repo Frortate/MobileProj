@@ -44,6 +44,14 @@ namespace CookBlock.Views.MainPage.MenuPages
             this.BindingContext = this;
             InitializeComponent();
 
+            if (ViewModel.IsLiked == true)
+            {
+                likeImage.Source = "heart_white.png";
+            }
+            else
+            {
+                likeImage.Source = "heart_outline_white.png";
+            }
 
             if (ViewModel.IsImageExist == true)
             {
@@ -57,6 +65,19 @@ namespace CookBlock.Views.MainPage.MenuPages
             
             
             creationDate.Text = FullRecipe.recipe.Date.ToString("dd MMMM, yyyy", CultureInfo.CreateSpecificCulture("ru-RU")) + " г.";
+        }
+
+        public void LikeRecipeTapped(object sender, EventArgs args)
+        {
+            ViewModel.LikeRecipeCommand.Execute(null);
+            if (ViewModel.IsLiked == true)
+            {
+                likeImage.Source = "heart_white.png";
+            }
+            else
+            {
+                likeImage.Source = "heart_outline_white.png";
+            }
         }
 
         public SelectedRecipePage(User user, FullRecipe fR)
@@ -74,6 +95,14 @@ namespace CookBlock.Views.MainPage.MenuPages
             this.BindingContext = this;
             InitializeComponent();
 
+            if (ViewModel.IsLiked == true)
+            {
+                likeImage.Source = "heart_white.png";
+            }
+            else
+            {
+                likeImage.Source = "heart_outline_white.png";
+            }
 
             if (ViewModel.IsImageExist == true)
             {
